@@ -1,0 +1,16 @@
+# Examen Docker · Bloque B
+# Añade tus servicios dentro de "services:" siguiendo el README.
+
+services:
+
+  # ── No toques este servicio: es el corrector del examen ─────────────────────
+  corrector:
+    image: python:3.12-alpine
+    profiles: ["corrector"]
+    command: python /examen/corrector/corregir.py
+    volumes:
+      - ./:/examen:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  # Tus servicios van aquí debajo (al mismo nivel que "corrector"):
